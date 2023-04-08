@@ -1,0 +1,24 @@
+{
+    "name": "bisho/php-registration-form",
+    "autoload": {
+        "psr-4": {
+            "Bisho\\PhpRegistrationForm\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "bisho515",
+            "email": "bishogeorge689@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmyadmin/phpmyadmin": "^5.2",
+        "twbs/bootstrap": "^5.0"
+
+    },
+    "scripts": {
+        "dev": "sudo php -S localhost:8080",
+        "db": "sudo mysql -u bisho < ./src/sql/init.sql"
+    }
+    
+}
