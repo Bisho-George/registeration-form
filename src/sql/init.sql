@@ -11,3 +11,4 @@ create table user (
   image_path VARCHAR(255),
   email VARCHAR(100) NOT NULL
 )
+--INSERT INTO user ()-->
