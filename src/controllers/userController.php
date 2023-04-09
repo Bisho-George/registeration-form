@@ -3,36 +3,35 @@ include '../models/DB_Ops.php';
 include '../models/user.php';
 
 class userController {
-    public function Db_Ops($Data) {
+    public function insert($Data) {
         $db = new DB_Ops();
         //Don't forget userImg
         if($db->insertUser($Data) == false)
         {
-            echo '<script>alert("Enter another user name")</script>';
+            echo'<script>alert("Username is already exists")</script>';
+            header("Location: ../../index.php");
         }
         else{
-        echo'<script>alert("Registered sucessfully")</script>';
+            echo'<script>alert("Registered sucessfully")</script>';
         }
     }
-    public function insertUser()
+    public function register()
     {
-        $username = $_POST['user_name'];
-        $full_name = $_POST['full_name'];
-        $birthdate = $_POST['birthdate'];
+        $username = $_POST['username'];
+        $full_name = $_POST['fullName'];
+        $birthdate = $_POST['birthDate'];
         $phone = $_POST['phone'];
         $address = $_POST['address'];
         $password = $_POST['password'];
-        //$userImage = $_POST['userImage'];
+        $userImage = $_POST['userImage'];
         $email = $_POST['email'];
-
         $Data = new UserModel($username, $full_name, $birthdate,
         $phone, $address, $password, $email);
-
-        $this->Db_Ops($Data);
+        $this->insert($Data);
     }
 }
-
 $userController = new userController();
-$userController->insertUser();
+$userController->register();
+
 
 ?>
