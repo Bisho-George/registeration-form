@@ -1,7 +1,7 @@
-class DB_Ops {
+public class DB_Ops {
     private $dbHost = 'localhost';
     private $dbUsername = 'bisho';
-    private $dbPassword = 'blablabla';
+    private $dbPassword = 'bisho1234';
     private $dbName = 'User';
     private $conn;
 

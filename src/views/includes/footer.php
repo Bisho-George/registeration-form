@@ -8,6 +8,6 @@ footer {
 
 </style>
 
-<footer>
+<footer class="fixed-bottom">
 		<p>&copy; 2023 My Website. All rights reserved.</p>
 </footer>
