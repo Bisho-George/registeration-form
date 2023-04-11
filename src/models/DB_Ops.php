@@ -1,5 +1,5 @@
 <?php
-include './user.php';
+//include 'user.php';
 class DB_Ops
 {
     private $dbHost = 'localhost';
