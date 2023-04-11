@@ -18,7 +18,7 @@
     },
     "scripts": {
         "dev": "sudo php -S localhost:8080",
-        "db": "sudo mysql -u bisho < ./src/sql/init.sql"
+        "db": "sudo mysql -u bisho -p User< ./src/sql/init.sql"
     }
     
 }
