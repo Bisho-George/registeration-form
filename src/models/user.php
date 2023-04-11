@@ -19,7 +19,7 @@ class UserModel
         $phone,
         $address,
         $password,
-        // $userImage,
+        $userImage,
         $email
     ) {
         $this->username = $username;
@@ -29,7 +29,7 @@ class UserModel
         $this->password = $password;
         $this->email = $email;
         $this->phone = $phone;
-        echo 'ccccccccccccc';
+        $this->userImage = $userImage;
     }
     public function getUserName()
     {
@@ -62,5 +62,8 @@ class UserModel
     public function getPhone()
     {
         return $this->phone;
+    }
+    public function getImageName() {
+        return $this->userImage;
     }
 }
