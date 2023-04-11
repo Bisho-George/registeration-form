@@ -1,6 +1,8 @@
 <?php
 include '../models/DB_Ops.php';
 include '../models/user.php';
+include '../models/api.php';
+//include '../models/API_Ops.js';
 
 class userController {
     public function insert($Data) {
@@ -13,7 +15,37 @@ class userController {
         }
         else{
             echo'<script>alert("Registered sucessfully")</script>';
+            //$this->getActorDate($Data);
         }
+    }
+    public function getActorDate($Data)
+    {
+        
+        $actorData = new ApiModel();
+        $customerBirtDate = $Data->getBirthdate();
+        echo'dsada';
+        //getActor();
+        echo'zzzz';
+
+        /*$actors = $actorData->getData($customerBirtDate);
+        $actorLen = count($actors);
+        echo'<pre>';
+        print_r($actors);
+        echo '</pre>';
+        echo $actorLen;
+        $result = [];
+        for($i = 0; $i < $actorLen; $i++)
+        {
+            $nm = substr($actors[$i], 6, -1);
+            $result []= $actorData->getActorDetails($actors[$i]);
+            sleep(1);
+
+        }
+        //var_dump($result);
+        echo '<pre>';
+        print_r($result);
+        echo '</pre>';
+        //echo $result;*/
     }
     public function register()
     {

@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Registeration Form</title>
-    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="./src/assets/style.css">
 </head>
 <body>
@@ -15,7 +17,7 @@
 
    <div class="container d-flex justify-content-center align-items-center">
   <div class="w-50">
-   <form action="./src/controllers/userController.php" method="post">
+   <form action="./src/controllers/userController.php" method="post" >
     <div  class="mb-2">
      <label for="username" class="form-label">Username</label>
      <input type="text" class="form-control" name="username">
@@ -27,6 +29,10 @@
     <div class="mb-2">
      <label for="birthdate" class="form-label">Birthdate</label>
      <input type="date" class="form-control" name="birthDate">
+     <button type="button" onclick="getActor(birthDate.value)">Make AJAX Request</button>
+     <p>Actor names: <span id="actorNames"></span></p>
+
+
     </div>
     <div class="mb-2">
      <label for="phone" class="form-label">Phone Number</label>
@@ -56,11 +62,17 @@
    </form>
   </div>
  </div>
+ <p>Actor names: <span id="actorNames"></span></p>
+
     <?php
     // Include the footer file
     include './src/views/includes/footer.php';
     ?>
-<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<!--<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"> </script>-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+<script src="./src/models/API_Ops.js">
+    </script>
 </body>
 </html>
 
