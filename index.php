@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <title>Registeration Form</title>
     <!--<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="./src/assets/style.css">
 </head>
 
@@ -31,6 +30,8 @@
                 <div class="mb-2">
                     <label for="birthdate" class="form-label">Birthdate</label>
                     <input type="date" class="form-control" name="birthDate">
+                    <button type="button" onclick="getActor(birthDate.value)">Get Actor Names</button>
+                    <p>Actor names: <span id="actorNames"></span></p>
                 </div>
                 <div class="mb-2">
                     <label for="phone" class="form-label">Phone Number</label>
@@ -65,6 +66,7 @@
     include './src/views/includes/footer.php';
     ?>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./src/models/API_Ops.js"></script>
 </body>
 
 </html>
