@@ -24,9 +24,8 @@ class DB_Ops
         $phone = $user->getPhone();
         $address = $user->getAddress();
         $password = $user->getPassword();
-        $userImage = '';
+        $userImage = $user->getImageName();
         $email = $user->getEmail();
-        echo $email;
         // Prepare the SQL statement with placeholders for the user data
         // Prepare the SQL statement with placeholders for the user data
         $stmt = $this->conn->prepare("SELECT * FROM user WHERE username = ? AND _password = ?");
@@ -38,7 +37,6 @@ class DB_Ops
         if ($result->num_rows > 0) {
             return false;
         } else {
-            echo $birthdate;
             // Prepare the SQL statement with placeholders for the user data
             $stmt = $this->conn->prepare("INSERT INTO user (username, fullname, birth_date, phone_number, _address, _password, image_path, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             $stmt->bind_param("ssssssss", $username, $fullName, $birthdate, $phone, $address, $password, $userImage, $email);
