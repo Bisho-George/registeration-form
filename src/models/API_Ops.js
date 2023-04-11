@@ -28,7 +28,7 @@ xhr.addEventListener("readystatechange", function () {
 	}
 });
 xhr.open("GET", "https://online-movie-database.p.rapidapi.com/actors/list-born-today?month="+month+"&day="+day);
-xhr.setRequestHeader("X-RapidAPI-Key", "c0184ee573msh225e2b1c76e5eeep11021ajsnd1f4b94f3bc0");
+xhr.setRequestHeader("X-RapidAPI-Key", "b9f028031bmshe5011abb8a0531dp1b7c59jsne7370f7fcf49");
 xhr.setRequestHeader("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com");
 
 
@@ -57,9 +57,8 @@ function getActorName(nm)
 	}});
 	
 	xhr.open("GET", "https://online-movie-database.p.rapidapi.com/actors/get-bio?nconst="+nm);
-	xhr.setRequestHeader("X-RapidAPI-Key", "c0184ee573msh225e2b1c76e5eeep11021ajsnd1f4b94f3bc0");
+	xhr.setRequestHeader("X-RapidAPI-Key", "b9f028031bmshe5011abb8a0531dp1b7c59jsne7370f7fcf49");
 	xhr.setRequestHeader("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com");
 
 	xhr.send();
 }
-//getActor();

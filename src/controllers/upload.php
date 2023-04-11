@@ -27,13 +27,12 @@ class ImageUploader
   }
   $imageN = uniqid('IMG-', true) . "." . $ext;
   $this->imageName = $imageName;
-  $targetPath = "uploads/" . $imageN;
-  move_uploaded_file($imaget, $targetPath);
-  if (move_uploaded_file($imaget, $targetPath)) {
+  $targetPath = "../uploads/" . $imageN;
+
+  if (move_uploaded_file($imaget, $targetPath) == true) {
    echo "File uploaded successfully";
   } else {
-   $error = error_get_last();
-   echo "File upload failed, please try again." . $error['message'];
+   echo "File upload failed, please try again.";
   }
  }
 }
