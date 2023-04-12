@@ -30,8 +30,11 @@
                 <div class="mb-2">
                     <label for="birthdate" class="form-label">Birthdate</label>
                     <input type="date" class="form-control" name="birthDate">
-                    <button type="button" onclick="getActor(birthDate.value)">Get Actor Names</button>
-                    <p>Actor names: <span id="actorNames"></span></p>
+                    <button class="btn btn-dark" type="button" onclick="getActor(birthDate.value)">Get Actor Names</button>
+                    <div>
+                        <h4>Actor Names: </h4>
+                        <ul id="actor-names"></ul>
+                    </div>
                 </div>
                 <div class="mb-2">
                     <label for="phone" class="form-label">Phone Number</label>
