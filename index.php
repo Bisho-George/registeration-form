@@ -18,7 +18,7 @@
 
     <div class="container d-flex justify-content-center align-items-center">
         <div class="w-50">
-            <form action="./src/controllers/userController.php" method="post" enctype="multipart/form-data">
+            <form id="registration-form" action="./src/controllers/userController.php" method="post" enctype="multipart/form-data">
                 <div class="mb-2">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" class="form-control" name="username">
@@ -44,7 +44,7 @@
                     <label for="address" class="form-label">Address</label>
                     <input type="text" class="form-control" name="address">
                 </div>
-                <div class="mb-2">
+                <div class="mb-2 img" >
                     <label for="userImage" class="form-label">User Image</label>
                     <input type="file" class="form-control" name="userImage">
                 </div>
@@ -68,8 +68,53 @@
     // Include the footer file
     include './src/views/includes/footer.php';
     ?>
+    <script>
+
+    </script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./src/models/API_Ops.js"></script>
+    <script>
+document.getElementById('registration-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  var xhr = new XMLHttpRequest();
+ // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+  var formData = new FormData(document.getElementById('registration-form'));
+
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+        console.log(xhr.responseText);
+        console.log(formData);
+
+        var response = JSON.parse(xhr.responseText);
+
+     // var response = JSON.parse(xhr.responseText);
+        // server-side validation was successful, submit the form
+
+        document.getElementById('registration-form').submit;
+        let imgMsg = response.imgMsg;
+        let formMsg = response.formMsg;
+        let p = document.createElement("p");
+        let text = document.createTextNode(imgMsg);
+        var imglabel = document.querySelector("img");
+        imglabel.appendChild();
+
+
+        // display an error message to the user
+        alert(formMsg);
+    } else {
+      // display an error message to the user
+      alert('An error occurred while validating the form');
+    }
+  };
+  xhr.open('POST', './src/controllers/userController.php', true);
+
+  xhr.send(formData);
+});
+</script>
+
+
 </body>
 
 </html>

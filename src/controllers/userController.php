@@ -3,17 +3,20 @@ include '../models/DB_Ops.php';
 include '../models/user.php';
 include './upload.php';
 class userController {
+    //private $response;
     public function insert($Data) {
         $db = new DB_Ops();
+        $msg="";
         if($db->insertUser($Data) == false)
         {
-            echo'<script>alert("Username is already exists")</script>';
+            $msg = 'Username is already exists';
             // header("Location: ../../index.php");
         }
         else{
-            echo'<script>alert("Registered sucessfully")</script>';
+            $msg = 'Registered sucessfully';
             //$this->getActorDate($Data);
         }
+        return $msg;
     }
     public function getActorDate($Data)
     {
@@ -46,6 +49,7 @@ class userController {
     }
     public function register()
     {
+        $response;
         $username = $_POST['username'];
         $full_name = $_POST['fullName'];
         $birthdate = $_POST['birthDate'];
@@ -56,10 +60,16 @@ class userController {
         $email = $_POST['email'];
         $Data = new UserModel($username, $full_name, $birthdate,
         $phone, $address, $password, $userImage, $email);
-        $this->insert($Data);
+        $formMsg = $this->insert($Data);
         $imageFile = new ImageUploader($userImage);
-        $imageFile->uploadImage();
+        $res = $imageFile->uploadImage();
+        $response = array(
+            "imgMsg" => $res,
+            "formMsg" => $formMsg
+        ); 
+        echo json_encode($response);
     }
+
 }
 $userController = new userController();
 $userController->register();
