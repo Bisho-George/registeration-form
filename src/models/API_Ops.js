@@ -8,9 +8,9 @@ function getActor(birthdate) {
   let day = date.getDate();
   let month = date.getMonth() + 1;
 
-  function sleep(ms) {
+  /*function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
-  }
+  }*/
 
   xhr.addEventListener("readystatechange", function () {
     if (this.readyState === this.DONE) {
@@ -46,8 +46,8 @@ function getActor(birthdate) {
       "&day=" +
       day
   );
-xhr.setRequestHeader("X-RapidAPI-Key", "6e977f9a0bmshf28fe5e3874506ap195e1fjsn75a4f59c9860");
-xhr.setRequestHeader("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com");
+  xhr.setRequestHeader("X-RapidAPI-Key", "b9f028031bmshe5011abb8a0531dp1b7c59jsne7370f7fcf49");
+  xhr.setRequestHeader("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com");
 
   xhr.send();
 }
@@ -82,8 +82,8 @@ function getActorName(nm) {
     "GET",
     "https://online-movie-database.p.rapidapi.com/actors/get-bio?nconst=" + nm
   );
-xhr.setRequestHeader("X-RapidAPI-Key", "6e977f9a0bmshf28fe5e3874506ap195e1fjsn75a4f59c9860");
-xhr.setRequestHeader("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com");
+  xhr.setRequestHeader("X-RapidAPI-Key", "b9f028031bmshe5011abb8a0531dp1b7c59jsne7370f7fcf49");
+  xhr.setRequestHeader("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com");
 
   xhr.send();
 }

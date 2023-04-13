@@ -17,12 +17,14 @@ class ImageUploader
 
  public function uploadImage()
  {
+    $res = "";
   $imageName = $_FILES['userImage']['name'];
   $imaget = $_FILES['userImage']['tmp_name'];
   $ext = strtolower(pathinfo($imageName, PATHINFO_EXTENSION));
   $allowed = array('jpg', 'jpeg', 'png', 'gif');
   if (!in_array($ext, $allowed)) {
-   echo "File type not allowed";
+    $res = "File type not allowed";
+    return $res;
    exit;
   }
   $imageN = uniqid('IMG-', true) . "." . $ext;
@@ -30,9 +32,11 @@ class ImageUploader
   $targetPath = "../uploads/" . $imageN;
 
   if (move_uploaded_file($imaget, $targetPath) == true) {
-   echo "File uploaded successfully";
+    $res = "File uploaded successfully";
+   //echo "File uploaded successfully";
   } else {
-   echo "File upload failed, please try again.";
+    $res = "File upload failed, please try again.";
   }
+  return $res;
  }
 }
