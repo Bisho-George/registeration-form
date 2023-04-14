@@ -32,16 +32,16 @@ class DB_Ops
         $stmt->bind_param("ss", $username, $password);
         $stmt->execute();
         $result = $stmt->get_result();
-
+        $usernameError = 'username is already exists';
         // Check if any rows were returned
         if ($result->num_rows > 0) {
-            return false;
+            return $usernameError;
         } else {
             // Prepare the SQL statement with placeholders for the user data
             $stmt = $this->conn->prepare("INSERT INTO user (username, fullname, birth_date, phone_number, _address, _password, image_path, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             $stmt->bind_param("ssssssss", $username, $fullName, $birthdate, $phone, $address, $password, $userImage, $email);
             $stmt->execute();
-            return true;
+            return '';
         }
     }
 
