@@ -4,6 +4,7 @@ footer {
 	color: #fff;
 	padding: 20px;
 	text-align: center;
+	font-size: x-large;
 }
 
 </style>

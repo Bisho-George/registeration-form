@@ -57,7 +57,7 @@ function getActorName(nm) {
 
   const xhr = new XMLHttpRequest();
   xhr.addEventListener("readystatechange", function () {
-    var actorNames = [];
+    let actorNames = [];
 
     if (this.readyState === this.DONE) {
       let obj = JSON.parse(xhr.response);
